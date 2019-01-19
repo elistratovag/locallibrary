@@ -6,4 +6,8 @@ from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('hello world')
+    #data = request.META
+    data = ''
+    for key, value in request.META.items():
+        data += '{}-{}<br />'.format(key, value) 
+    return HttpResponse(data) 
